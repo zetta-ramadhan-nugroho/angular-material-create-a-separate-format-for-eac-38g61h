@@ -1,0 +1,26 @@
+.container {
+  width: 100%;
+  display: flex;
+  padding: 20px 0;
+  align-items: center;
+  justify-content: center;
+
+  .segment {
+    padding: 0 20px;
+    .block {
+      text-align: center;
+
+      .mat-form-field {
+        min-width: 400px;
+      }
+    }
+  }
+}
+
+.example-month-picker .mat-calendar-period-button {
+  pointer-events: none;
+}
+
+.example-month-picker .mat-calendar-arrow {
+  display: none;
+}

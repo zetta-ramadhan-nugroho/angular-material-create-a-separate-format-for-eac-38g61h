@@ -1,0 +1,38 @@
+<div class="container">
+	<div class="segment">
+		<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+			<div class="block">
+				<mat-form-field appearance="fill">
+					<mat-label>Date Format</mat-label>
+					<mat-select (selectionChange)="changeFormat($event)">
+						<mat-option *ngFor="let df of dFormats" [value]="df">
+							{{df}}
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+			</div>
+
+			<div class="block">
+				<mat-form-field>
+					<mat-label>Date Picker (format: YYYY/MM/DD)</mat-label>
+					<input
+            matInput
+            [matDatepicker]="datepicker"
+            [datePickerFormat]="candidateData?.date_format"
+            formControlName="format1"
+						(click)="datepicker.open()"
+						readonly
+          >
+					<mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+					<mat-datepicker #datepicker
+                  [startView]="startView"
+									(yearSelected)="setYear($event, datepicker)"
+									(monthSelected)="setMonth($event, datepicker)"
+                  panelClass="example-month-picker">
+  				</mat-datepicker>
+				</mat-form-field>
+			</div>
+		</form>
+	</div>
+</div>
